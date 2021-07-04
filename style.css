@@ -1,0 +1,14 @@
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(16, 35px);
+}
+.grid-element,
+.container>div {
+  height: 35px;
+  background: dodgerblue;
+  /* margin: 1px; */
+}
+div.active{
+  background: plum;
+}
