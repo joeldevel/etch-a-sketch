@@ -5,6 +5,7 @@
   /* grid-template-columns: repeat(16, 1fr); */
   /* grid-template-rows: repeat(16, 1fr); */
   grid-gap: 1px;
+  margin: 20px;
 }
 .no-gap {
   grid-gap: 0;
@@ -14,6 +15,7 @@
   /* height: 35px; */
   background: dodgerblue;
   /* margin: 1px; */
+  transition: all 0.2s ease-in-out;
 }
 div.active{
   background: plum;
