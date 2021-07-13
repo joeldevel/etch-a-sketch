@@ -1,22 +1,44 @@
 const container = document.querySelector('.container');
+const clearButton = document.querySelector('.clear-button');
+const toggleGapButton = document.querySelector('.toggle-gap');
+const containerWidth = '400';
+// let gridElements = null;
 
-const X = 16;
+// firstTime
+// newPlayground();
+let squaresPerSide = 16;
+setGrid(squaresPerSide);
+populateGrid(squaresPerSide*squaresPerSide, containerWidth/squaresPerSide);
 
-for(let i = 0; i< X*X; i++) {
-  // console.log(i);
-  container.appendChild(document.createElement('div'))
+function setGrid(squares) {
+  container.style.gridTemplateColumns=`repeat(${squares}, 1fr)`;
+  container.style.width = `${containerWidth}px`;
 }
 
-const gridElements = document.querySelectorAll('.container>div');
+function populateGrid(amount, squareHeight) {
+  for(let i = 0; i< amount; i++) {
+    const div = document.createElement('div');
+    div.style.height =`${squareHeight}px`;
+    container.appendChild(div);
+  }
+}
+let gridElements = document.querySelectorAll('.container>div') ;
+
 // console.log(gridElements);
 
 function paintElement() {
-  // console.log(e.currentTarget);
-  // e.currentTarget.classList.add('active');
   this.classList.add('active');
-  console.log(this);
-  // this.style.background = 'plum';
 }
+
+function toggleGap() {
+  container.classList.toggle('no-gap');
+}
+
+
+// clearButton.addEventListener('click', newPlayground);
+
+toggleGapButton.addEventListener('click', toggleGap);
+
 gridElements.forEach(item=>{
   item.addEventListener('mouseover', paintElement);
 });
